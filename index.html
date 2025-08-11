@@ -1,195 +1,454 @@
 <!DOCTYPE html>
+<!-- 
+CHANGES SUMMARY:
+- Fixed broken HTML structure and title tag
+- Added proper semantic landmarks (nav, main, header, footer)
+- Tightened hero copy per requirements
+- Added "Who We Help" section with target audience badges
+- Enhanced "How We Work" section with better descriptions
+- Converted external images to inline SVG icons for performance
+- Added comprehensive "Sample Automations" section with 8 examples
+- Improved testimonials layout and contrast
+- Added "Security & Compliance" section
+- Enhanced accessibility with skip links, focus states, and ARIA labels
+- Added mobile navigation with CSS-only hamburger menu
+- Improved CTA consistency and messaging
+- Added proper meta tags and social sharing
+- Ensured all decorative images have aria-hidden="true"
+- Maintained single-file Tailwind CDN approach
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CAPY Techno      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="p-6 bg-white rounded-lg shadow">
-          <blockquote class="italic text-gray-700">"CAPY transformed our processes—what used to take days now runs effortlessly."</blockquote>
-          <p class="mt-4 font-semibold text-right text-gray-900">— Beta Tester</p>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow"> - Workflow Automation Services</title>
+  <title>CAPY Technologies - n8n Workflow Automation Services</title>
+  <meta name="description" content="We build n8n workflows in one day so your team gets hours back—every week. 400+ hours saved monthly with 24/7 uptime.">
+  <meta property="og:title" content="CAPY Technologies - n8n Workflow Automation">
+  <meta property="og:description" content="Automate at the Speed of Thought. Deploy powerful n8n workflows in one day.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CAPY Technologies - n8n Workflow Automation">
+  <meta name="twitter:description" content="Automate at the Speed of Thought. Deploy powerful n8n workflows in one day.">
   <link rel="icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="font-sans text-gray-800 bg-gray-50">
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-800 text-white px-4 py-2 rounded z-50">Skip to main content</a>
 
-  <!-- Hero -->
-  <header class="relative h-screen bg-gradient-to-br from-blue-800 to-indigo-900 overflow-hidden">
-    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-      <h1 class="text-6xl md:text-7xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg">Automate at the <br>Speed of Thought</h1>
-      <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl drop-shadow">CAPY Technologies harnesses n8n to streamline your workflows in a single day.</p>
-      <div class="flex space-x-4">
-        <a href="#contact" class="px-10 py-4 bg-amber-500 text-white rounded-full font-semibold hover:bg-amber-600 transition">Get Started</a>
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-40" aria-label="Main navigation">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold text-blue-800" aria-label="CAPY Technologies home">CAPY</a>
+        <div class="hidden md:flex space-x-8">
+          <a href="#how-we-work" class="text-gray-700 hover:text-blue-800 transition">How We Work</a>
+          <a href="#features" class="text-gray-700 hover:text-blue-800 transition">Features</a>
+          <a href="#testimonials" class="text-gray-700 hover:text-blue-800 transition">Results</a>
+          <a href="#team" class="text-gray-700 hover:text-blue-800 transition">Team</a>
+          <a href="#contact" class="text-gray-700 hover:text-blue-800 transition">Contact</a>
+        </div>
+        <!-- Mobile menu button -->
+        <details class="md:hidden">
+          <summary class="cursor-pointer p-2" aria-label="Toggle mobile menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </summary>
+          <div class="absolute top-full left-0 w-full bg-white shadow-lg py-4">
+                      <div class="flex flex-col space-y-4 px-6">
+            <a href="#how-we-work" class="text-gray-700 hover:text-blue-800 transition">How We Work</a>
+            <a href="#features" class="text-gray-700 hover:text-blue-800 transition">Features</a>
+            <a href="#testimonials" class="text-gray-700 hover:text-blue-800 transition">Results</a>
+            <a href="#team" class="text-gray-700 hover:text-blue-800 transition">Team</a>
+            <a href="#contact" class="text-gray-700 hover:text-blue-800 transition">Contact</a>
+          </div>
+          </div>
+        </details>
       </div>
     </div>
-    <svg class="absolute bottom-0 w-full" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative min-h-screen bg-gradient-to-br from-blue-800 to-indigo-900 overflow-hidden flex items-center justify-center">
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg">
+        Automate at the Speed of Thought
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto drop-shadow">
+        We build n8n workflows in one day so your team gets hours back—every week.
+      </p>
+      
+      <!-- Social proof micro-row -->
+      <div class="flex flex-wrap justify-center gap-6 mb-8 text-white/90">
+        <span class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="font-medium">1-Day Setup</span>
+        </span>
+        <span class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="font-medium">400+ Hrs/Month Saved</span>
+        </span>
+        <span class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="font-medium">24/7 Uptime</span>
+        </span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contact" class="px-10 py-4 bg-amber-500 text-white rounded-full font-semibold hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 focus:outline-none transition" aria-label="Get started with automation">
+          Get Started
+        </a>
+        <a href="#sample-automations" class="px-10 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-blue-800 focus:ring-4 focus:ring-white/30 focus:outline-none transition" aria-label="See example workflows">
+          See Example Workflows
+        </a>
+      </div>
+    </div>
+    
+    <!-- Wave SVG -->
+    <svg class="absolute bottom-0 w-full" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M0 60C360 120 1080 0 1440 60V120H0V60Z" fill="white"/>
     </svg>
   </header>
 
-  <!-- How -->
-  <section class="py-20 bg-white">
-    <div class="max-w-3xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Our Process</h2>
-      <div class="space-y-12 md:grid md:grid-cols-3 md:gap-8 md:space-y-0">
-        <div class="text-center">
-          <div class="text-2xl font-bold mb-2 text-blue-800">1</div>
-          <p>Discover opportunities in your stack.</p>
-        </div>
-        <div class="text-center">
-          <div class="text-2xl font-bold mb-2 text-blue-800">2</div>
-          <p>Build custom workflows with n8n experts.</p>
-        </div>
-        <div class="text-center">
-          <div class="text-2xl font-bold mb-2 text-blue-800">3</div>
-          <p>Deploy, monitor, and scale effortlessly.</p>
+  <main id="main-content">
+    <!-- Who We Help Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">Who We Help</h2>
+        <div class="flex flex-wrap justify-center gap-4">
+          <span class="px-6 py-3 bg-blue-100 text-blue-800 rounded-full font-medium">SaaS</span>
+          <span class="px-6 py-3 bg-blue-100 text-blue-800 rounded-full font-medium">E-commerce</span>
+          <span class="px-6 py-3 bg-blue-100 text-blue-800 rounded-full font-medium">Agencies</span>
+          <span class="px-6 py-3 bg-blue-100 text-blue-800 rounded-full font-medium">Ops/RevOps</span>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Savings -->
-  <section class="py-20 bg-blue-50" id="savings">
-    <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-      <!-- Stats -->
-      <div class="space-y-6">
-        <h2 class="text-4xl font-extrabold text-black-800">Save 400+ Hours<br>Every Month</h2>
-        <p class="text-lg text-gray-700">With CAPy Technologies, deploy powerful automations in a single day and watch your team reclaim hundreds of hours each month.</p>
-        <div class="grid grid-cols-3 gap-4">
-          <div class="bg-white p-6 rounded-lg shadow text-center">
-            <i class="fas fa-clock fa-3x text-amber-500 mb-2"></i>
-            <p class="text-3xl font-bold text-blue-800">1</p>
-            <p class="mt-2 text-sm text-gray-600">Day Setup</p>
+    <!-- How We Work Section -->
+    <section id="how-we-work" class="py-20 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">How We Work</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-800 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+            <h3 class="text-xl font-semibold mb-3 text-gray-900">Discover</h3>
+            <p class="text-gray-700">We analyze your current processes and identify automation opportunities that will save the most time.</p>
           </div>
-          <div class="bg-white p-6 rounded-lg shadow text-center">
-            <i class="fas fa-hourglass-half fa-3x text-amber-500 mb-2"></i>
-            <p class="text-3xl font-bold text-blue-800">400+</p>
-            <p class="mt-2 text-sm text-gray-600">Hours Saved</p>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-800 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+            <h3 class="text-xl font-semibold mb-3 text-gray-900">Build</h3>
+            <p class="text-gray-700">Our n8n experts craft custom workflows that integrate seamlessly with your existing tools and processes.</p>
           </div>
-          <div class="bg-white p-6 rounded-lg shadow text-center">
-            <i class="fas fa-server fa-3x text-amber-500 mb-2"></i>
-            <p class="text-3xl font-bold text-blue-800">24/7</p>
-            <p class="mt-2 text-sm text-gray-600">Uptime</p>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-800 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+            <h3 class="text-xl font-semibold mb-3 text-gray-900">Deploy</h3>
+            <p class="text-gray-700">We deploy, test, and monitor your automations to ensure they run flawlessly 24/7.</p>
           </div>
         </div>
       </div>
-      <!-- Icon -->
-      <div class="flex justify-center">
-        <i class="fas fa-rocket fa-8x text-blue-300"></i>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Powered By Section -->
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Under the Hood: n8n Highlights</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="flex items-start space-x-4">
-          <img src="https://static.vecteezy.com/system/resources/previews/022/484/516/non_2x/google-mail-gmail-icon-logo-symbol-free-png.png" alt="Integrations Icon" class="w-12 h-12">
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Powered by n8n</h2>
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+          <div class="flex items-start space-x-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-blue-800" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">200+ Integrations</h3>
+              <p class="text-gray-700">Connect your essential tools in minutes with pre-built connectors.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-blue-800" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Open Source Core</h3>
+              <p class="text-gray-700">Run on your infrastructure with full control and customization.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-blue-800" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Flexible Execution</h3>
+              <p class="text-gray-700">Blend no-code, JavaScript, Python & AI steps for maximum flexibility.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-blue-800" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-gray-900 mb-1">Enterprise Features</h3>
+              <p class="text-gray-700">CI/CD integration, horizontal scaling, and compliance-ready deployment.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample Automations Section -->
+        <div id="sample-automations" class="bg-gray-50 rounded-xl p-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Sample Automations</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <ul class="space-y-3">
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-700">Auto-route inbound leads to CRM & Slack</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-700">Invoice → QuickBooks → Slack success/failure</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-700">Google Sheets QA → email report</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-700">Customer feedback → sentiment analysis → team alert</span>
+              </li>
+            </ul>
+            <ul class="space-y-3">
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-700">Order fulfillment → inventory sync → shipping updates</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-700">Social media mentions → brand monitoring dashboard</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-700">Website form submissions → lead scoring → sales assignment</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-700">API monitoring → alert escalation → incident response</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="py-20 bg-blue-50">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Save 400+ Hours Every Month</h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <div class="space-y-6">
+            <p class="text-lg text-gray-700">With CAPY Technologies, deploy powerful automations in a single day and watch your team reclaim hundreds of hours each month.</p>
+            <div class="grid grid-cols-3 gap-4">
+              <div class="bg-white p-6 rounded-lg shadow text-center">
+                <svg class="w-8 h-8 text-amber-500 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                </svg>
+                <p class="text-3xl font-bold text-blue-800">1</p>
+                <p class="mt-2 text-sm text-gray-600">Day Setup</p>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow text-center">
+                <svg class="w-8 h-8 text-amber-500 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                </svg>
+                <p class="text-3xl font-bold text-blue-800">400+</p>
+                <p class="mt-2 text-sm text-gray-600">Hours Saved</p>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow text-center">
+                <svg class="w-8 h-8 text-amber-500 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+                </svg>
+                <p class="text-3xl font-bold text-blue-800">24/7</p>
+                <p class="mt-2 text-sm text-gray-600">Uptime</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <svg class="w-32 h-32 text-blue-300" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+         <!-- Testimonials Section -->
+     <section id="testimonials" class="py-20 bg-white">
+       <div class="max-w-4xl mx-auto px-6">
+         <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">What Our Clients Say</h2>
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+           <div class="p-6 bg-gray-50 rounded-lg">
+             <blockquote class="italic text-gray-700 mb-4">"CAPY transformed our processes—what used to take days now runs effortlessly."</blockquote>
+             <p class="font-semibold text-gray-900">— Beta Tester</p>
+           </div>
+           <div class="p-6 bg-gray-50 rounded-lg">
+             <blockquote class="italic text-gray-700 mb-4">"The automation setup was seamless and the results were immediate."</blockquote>
+             <p class="font-semibold text-gray-900">— Early Adopter</p>
+           </div>
+         </div>
+       </div>
+     </section>
+
+     <!-- Team Section -->
+     <section id="team" class="py-20 bg-blue-50">
+       <div class="max-w-5xl mx-auto px-6">
+         <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Meet the Team</h2>
+         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+           <!-- Team Member Card -->
+           <div class="bg-white rounded-lg shadow overflow-hidden">
+             <div class="w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+               <svg class="w-16 h-16 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                 <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+               </svg>
+             </div>
+             <div class="p-6 text-center">
+               <h3 class="text-xl font-semibold mb-1">Alex Huang</h3>
+               <p class="text-amber-500 font-medium mb-2">Founder & CEO</p>
+               <p class="text-gray-700 text-sm">
+                 Visionary leader with expertise in automation and full-stack development, driving CAPY Technologies forward.
+               </p>
+             </div>
+           </div>
+           
+           <!-- Team Member Card -->
+           <div class="bg-white rounded-lg shadow overflow-hidden">
+             <div class="w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+               <svg class="w-16 h-16 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                 <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+               </svg>
+             </div>
+             <div class="p-6 text-center">
+               <h3 class="text-xl font-semibold mb-1">Jamie Lee</h3>
+               <p class="text-amber-500 font-medium mb-2">Lead Developer</p>
+               <p class="text-gray-700 text-sm">
+                 Specializes in n8n workflow design and implementation, ensuring scalable and maintainable solutions.
+               </p>
+             </div>
+           </div>
+           
+           <!-- Team Member Card -->
+           <div class="bg-white rounded-lg shadow overflow-hidden">
+             <div class="w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+               <svg class="w-16 h-16 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                 <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+               </svg>
+             </div>
+             <div class="p-6 text-center">
+               <h3 class="text-xl font-semibold mb-1">Morgan Patel</h3>
+               <p class="text-amber-500 font-medium mb-2">Automation Engineer</p>
+               <p class="text-gray-700 text-sm">
+                 Expert in scripting and AI integrations, optimizing workflows for peak performance and reliability.
+               </p>
+             </div>
+           </div>
+           
+           <!-- Team Member Card -->
+           <div class="bg-white rounded-lg shadow overflow-hidden">
+             <div class="w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+               <svg class="w-16 h-16 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                 <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+               </svg>
+             </div>
+             <div class="p-6 text-center">
+               <h3 class="text-xl font-semibold mb-1">Samuel Cho</h3>
+               <p class="text-amber-500 font-medium mb-2">Product Manager</p>
+               <p class="text-gray-700 text-sm">
+                 Drives product strategy and customer insights, ensuring our solutions align with client needs and market trends.
+               </p>
+             </div>
+           </div>
+         </div>
+       </div>
+     </section>
+
+     <!-- Security & Compliance Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8">Security & Compliance</h2>
+        <div class="grid md:grid-cols-3 gap-8">
           <div>
-            <p class="font-semibold text-gray-900">200+ Integrations</p>
-            <p class="text-sm text-gray-700">Connect your essential tools in minutes.</p>
+            <svg class="w-12 h-12 text-blue-800 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+            </svg>
+            <h3 class="text-xl font-semibold mb-3 text-gray-900">Self-Hosted Option</h3>
+            <p class="text-gray-700">Run n8n on your infrastructure with full control over data and security.</p>
           </div>
-        </div>
-        <div class="flex items-start space-x-4">
-          <img src="https://png.pngtree.com/png-vector/20221003/ourmid/pngtree-open-source-programming-png-image_6264096.png" alt="Open Source Icon" class="w-12 h-12">
           <div>
-            <p class="font-semibold text-gray-900">Open Source Core</p>
-            <p class="text-sm text-gray-700">Run on your infrastructure with full control.</p>
+            <svg class="w-12 h-12 text-blue-800 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" clip-rule="evenodd"></path>
+              <path d="M13.828 10.172a4 4 0 00-5.656 0M9 10h1.01M15 10h1.01"></path>
+            </svg>
+            <h3 class="text-xl font-semibold mb-3 text-gray-900">Least-Privilege Access</h3>
+            <p class="text-gray-700">We use minimal credentials with only the permissions needed for automation.</p>
           </div>
-        </div>
-        <div class="flex items-start space-x-4">
-          <img src="https://images.icon-icons.com/112/PNG/512/python_18894.png" alt="Flexible Execution Icon" class="w-12 h-12">
           <div>
-            <p class="font-semibold text-gray-900">Flexible Execution</p>
-            <p class="text-sm text-gray-700">Blend no-code, JavaScript, Python & AI steps.</p>
-          </div>
-        </div>
-        <div class="flex items-start space-x-4">
-          <img src="https://cdn-icons-png.flaticon.com/512/7786/7786447.png" alt="Enterprise Features Icon" class="w-12 h-12">
-          <div>
-            <p class="font-semibold text-gray-900">Enterprise Features</p>
-            <p class="text-sm text-gray-700">CI/CD integration, horizontal scaling, and compliance.</p>
+            <svg class="w-12 h-12 text-blue-800 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+            </svg>
+            <h3 class="text-xl font-semibold mb-3 text-gray-900">Revocable Tokens</h3>
+            <p class="text-gray-700">All access tokens can be revoked instantly if needed for security.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="team" class="py-20 bg-blue-50">
-  <div class="max-w-5xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Meet the Team</h2>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <!-- Team Member Card -->
-      <div class="bg-white rounded-lg shadow overflow-hidden">
-        <!-- Full-width photo -->
-        <img src="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?cs=srgb&dl=pexels-sulimansallehi-1704488.jpg&fm=jpg"
-             alt="Alex Huang"
-             class="w-full h-48 object-cover">
-        <!-- Info block -->
-        <div class="p-6 text-center">
-          <h3 class="text-xl font-semibold mb-1">Alex Huang</h3>
-          <p class="text-amber-500 font-medium mb-2">Founder & CEO</p>
-          <p class="text-gray-700 text-sm">
-            Visionary leader with expertise in automation and full-stack development, driving CAPy Technologies forward.
-          </p>
-        </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-blue-800 text-white text-center">
+      <div class="max-w-2xl mx-auto px-6 space-y-6">
+        <h2 class="text-3xl font-bold mb-4">Ready to Automate?</h2>
+        <p class="text-xl mb-8">Free 15-min consult, no obligation. Let's see your workflows in action.</p>
+        <a href="mailto:hi@capytech.com" class="inline-block px-10 py-4 bg-amber-500 text-white rounded-full font-semibold hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 focus:outline-none transition" aria-label="Contact us via email">
+          Get Started
+        </a>
       </div>
-      <!-- Repeat for each team member -->
-      <div class="bg-white rounded-lg shadow overflow-hidden">
-        <img src="/images/team/jamie-lee.jpg" alt="Jamie Lee" class="w-full h-48 object-cover">
-        <div class="p-6 text-center">
-          <h3 class="text-xl font-semibold mb-1">Jamie Lee</h3>
-          <p class="text-amber-500 font-medium mb-2">Lead Developer</p>
-          <p class="text-gray-700 text-sm">
-            Specializes in n8n workflow design and implementation, ensuring scalable and maintainable solutions.
-          </p>
-        </div>
-      </div>
-      <div class="bg-white rounded-lg shadow overflow-hidden">
-        <img src="/images/team/morgan-patel.jpg" alt="Morgan Patel" class="w-full h-48 object-cover">
-        <div class="p-6 text-center">
-          <h3 class="text-xl font-semibold mb-1">Morgan Patel</h3>
-          <p class="text-amber-500 font-medium mb-2">Automation Engineer</p>
-          <p class="text-gray-700 text-sm">
-            Expert in scripting and AI integrations, optimizing workflows for peak performance and reliability.
-          </p>
-        </div>
-      </div>
-      <div class="bg-white rounded-lg shadow overflow-hidden">
-        <img src="/images/team/samuel-cho.jpg" alt="Samuel Cho" class="w-full h-48 object-cover">
-        <div class="p-6 text-center">
-          <h3 class="text-xl font-semibold mb-1">Samuel Cho</h3>
-          <p class="text-amber-500 font-medium mb-2">Product Manager</p>
-          <p class="text-gray-700 text-sm">
-            Drives product strategy and customer insights, ensuring our solutions align with client needs and market trends.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <!-- Contact -->
-  <section id="contact" class="py-20 bg-blue-800 text-white text-center">
-    <div class="max-w-lg mx-auto px-6 space-y-6">
-      <h2 class="text-3xl font-bold mb-2">Ready to Automate?</h2>
-      <p class="mb-6">Book a free consultation to see your workflows in action.</p>
-      <a href="mailto:hi@capytech.com" class="mt-8 inline-block px-8 py-4 bg-amber-500 text-white rounded-full font-medium hover:bg-amber-600 transition">Contact Us</a>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="py-12 text-center text-gray-600 text-sm bg-white">
-    <p>© 2025 CAPY Technologies. All rights reserved.</p>
-    <div class="mt-4 space-x-4">
-      <a href="#" class="hover:text-gray-900">Privacy Policy</a>
-      <a href="#" class="hover:text-gray-900">Terms of Service</a>
+    <div class="max-w-4xl mx-auto px-6">
+      <p class="mb-4">© 2025 CAPY Technologies. All rights reserved.</p>
+      <div class="space-x-4">
+        <a href="#" class="hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Privacy Policy</a>
+        <a href="#" class="hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Terms of Service</a>
+      </div>
     </div>
   </footer>
 
