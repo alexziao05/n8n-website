@@ -16,6 +16,7 @@ CHANGES SUMMARY:
 - Added proper meta tags and social sharing
 - Ensured all decorative images have aria-hidden="true"
 - Maintained single-file Tailwind CDN approach
+- REPAIRED: Mobile navigation with accessible button and smooth animations
 -->
 <html lang="en">
 <head>
@@ -33,6 +34,7 @@ CHANGES SUMMARY:
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/custom.css">
   <style>
     /* Smooth scroll behavior */
     html {
@@ -155,7 +157,7 @@ CHANGES SUMMARY:
     }
   </style>
 </head>
-<body class="font-sans text-gray-800 bg-gray-50">
+<body class="font-sans text-gray-800 bg-gray-50 pt-16">
   <!-- Skip to main content link for accessibility -->
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-800 text-white px-4 py-2 rounded z-50">Skip to main content</a>
 
@@ -179,28 +181,37 @@ CHANGES SUMMARY:
           <a href="#contact" class="text-gray-700 hover:text-blue-800 transition">Contact</a>
         </div>
         <!-- Mobile menu button -->
-        <details class="md:hidden">
-          <summary class="cursor-pointer p-2" aria-label="Toggle mobile menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </summary>
-          <div class="absolute top-full left-0 w-full bg-white shadow-lg py-4">
-                      <div class="flex flex-col space-y-4 px-6">
-            <a href="#how-we-work" class="text-gray-700 hover:text-blue-800 transition">How We Work</a>
-            <a href="#features" class="text-gray-700 hover:text-blue-800 transition">Features</a>
-            <a href="#pricing" class="text-gray-700 hover:text-blue-800 transition">Pricing</a>
-            <a href="#team" class="text-gray-700 hover:text-blue-800 transition">Team</a>
-            <a href="#contact" class="text-gray-700 hover:text-blue-800 transition">Contact</a>
-          </div>
-          </div>
-        </details>
+        <button
+          class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded border border-gray-300 bg-white/70 hover:bg-white transition"
+          aria-controls="primary-menu"
+          aria-expanded="false"
+          aria-label="Toggle menu"
+          id="menu-button"
+        >
+          <svg data-icon="open" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg data-icon="close" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6l-12 12"/></svg>
+        </button>
+      </div>
+      <!-- Mobile dropdown panel -->
+      <div
+        id="primary-menu"
+        class="md:hidden absolute right-4 top-14 w-56 rounded-2xl border border-gray-200 bg-white/95 backdrop-blur shadow-xl p-3
+               opacity-0 translate-y-1 pointer-events-none transition duration-200"
+        hidden
+      >
+        <nav class="flex flex-col space-y-1" aria-label="Mobile">
+          <a href="#how-we-work" class="px-3 py-2 rounded hover:bg-gray-100">How We Work</a>
+          <a href="#features" class="px-3 py-2 rounded hover:bg-gray-100">Features</a>
+          <a href="#pricing" class="px-3 py-2 rounded hover:bg-gray-100">Pricing</a>
+          <a href="#team" class="px-3 py-2 rounded hover:bg-gray-100">Team</a>
+          <a href="#contact" class="px-3 py-2 rounded-full bg-amber-500 text-white text-center hover:bg-amber-600">Get Started</a>
+        </nav>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <header class="relative min-h-screen bg-gradient-to-br from-blue-800 to-indigo-900 overflow-hidden flex items-center justify-center">
+  <header class="relative min-h-[calc(100svh-4rem)] md:min-h-[calc(100vh-4rem)] bg-gradient-to-br from-blue-800 to-indigo-900 overflow-hidden flex items-center justify-center">
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
       <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg">
         Automate at the Speed of Thought
@@ -545,7 +556,7 @@ CHANGES SUMMARY:
            <!-- Team Member Card -->
            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col h-full scale-in stagger-1" data-animate>
              <div class="w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-               <img src="https://capytechnology.pages.dev/images/alexhuang.png" alt="Alex Huang" class="object-cover w-full h-full" />
+               <img src="https://capytechnology.pages.dev/images/alexhuang.png" alt="Alex Huang" class="object-cover w-full h-full" width="200" height="200" loading="lazy" />
              </div>
              <div class="p-6 text-center flex flex-col flex-grow">
                <h3 class="text-xl font-semibold mb-1">Alex Huang</h3>
@@ -567,7 +578,7 @@ CHANGES SUMMARY:
            <!-- Team Member Card -->
            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col h-full scale-in stagger-2" data-animate>
              <div class="w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-               <img src="https://capytechnology.pages.dev/images/cameron.jpeg" alt="Cameron Villalobos" class="object-cover w-full h-full" />
+               <img src="https://capytechnology.pages.dev/images/cameron.jpeg" alt="Cameron Villalobos" class="object-cover w-full h-full" width="200" height="200" loading="lazy" />
              </div>
              <div class="p-6 text-center flex flex-col flex-grow">
                <h3 class="text-xl font-semibold mb-1">Cameron Villalobos</h3>
@@ -589,7 +600,7 @@ CHANGES SUMMARY:
            <!-- Team Member Card -->
            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col h-full scale-in stagger-3" data-animate>
              <div class="w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-               <img src="https://capytechnology.pages.dev/images/emiliano.JPG" alt="Emiliano Luna" class="object-cover w-full h-full" />
+               <img src="https://capytechnology.pages.dev/images/emiliano.JPG" alt="Emiliano Luna" class="object-cover w-full h-full" width="200" height="200" loading="lazy" />
              </div>
              <div class="p-6 text-center flex flex-col flex-grow">
                <h3 class="text-xl font-semibold mb-1">Emiliano Luna</h3>
@@ -611,7 +622,7 @@ CHANGES SUMMARY:
            <!-- Team Member Card -->
            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col h-full scale-in stagger-4" data-animate>
              <div class="w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-               <img src="https://capytechnology.pages.dev/images/angel.png" alt="Angel Guzman" class="object-cover w-full h-full" />
+               <img src="https://capytechnology.pages.dev/images/angel.png" alt="Angel Guzman" class="object-cover w-full h-full" width="200" height="200" loading="lazy" />
              </div>
              <div class="p-6 text-center flex flex-col flex-grow">
                <h3 class="text-xl font-semibold mb-1">Angel Guzman</h3>
@@ -715,7 +726,10 @@ CHANGES SUMMARY:
         });
       });
     });
+
   </script>
+
+  <script src="/js/nav.js" defer></script>
 
 </body>
 </html>

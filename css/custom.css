@@ -1,0 +1,25 @@
+/* Hide default disclosure marker if any <summary> remains (iOS triangle fix) */
+.no-marker::-webkit-details-marker { display: none; }
+summary::-webkit-details-marker { display: none; } /* safety */
+
+/* Make the mobile dropdown animate in/out */
+#primary-menu.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+/* Improve hit target & iOS tap highlight */
+#menu-button { -webkit-tap-highlight-color: rgba(0,0,0,0.1); }
+
+/* Ensure nav layer above hero */
+nav { z-index: 20; }
+
+/* Nav shadow on scroll */
+nav.is-scrolled {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Optional: safe-area padding for notches */
+:root { --safe-top: env(safe-area-inset-top, 0px); }
+body { padding-top: calc(4rem + var(--safe-top)); } /* if nav height differs, adjust 4rem */
